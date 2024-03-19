@@ -1,0 +1,296 @@
+{%extends 'blog/base.html'%}
+{%load static%}
+{%block title%}Profile{%endblock%}
+
+{%block menu%}
+	<ul style="color:#00d8ff;" class="nav navbar-nav navbar-right">
+		<li class=""><a href="{%url 'blog:post_list'%}">home</a></li>
+		<li  class="smooth-menu"><a href="#pack">Post</a></li>
+		<li class="smooth-menu"><a href="#container">Comments </a></li>
+		<li class="smooth-menu"><a href="#simular">Similar Posts</a></li>
+		<li class="smooth-menu"><a href="#subs">subscription</a></li>
+		<li>
+			<a href="{%url 'profile:add_post'%}" class="book-btn">add post</a>
+		</li><!--/.project-btn-->
+	</ul>
+{%endblock%}
+
+{% block context %}
+
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-12 grid-margin">
+              <div class="row">
+                <div class="col-12 col-xl-8 mb-6 mb-xl-0">
+                  <br>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5 stretch-card grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <p class="card-title">Notifications</p>
+                  <ul class="icon-data-list">
+                    <li>
+                      <div class="d-flex">
+                        <img src="images/faces/face1.jpg" alt="user">
+                        <div>
+                          <p class="text-info mb-1">Isabella Becker</p>
+                          <p class="mb-0">Sales dashboard have been created</p>
+                          <small>9:30 am</small>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="d-flex">
+                        <img src="images/faces/face2.jpg" alt="user">
+                        <div>
+                          <p class="text-info mb-1">Adam Warren</p>
+                          <p class="mb-0">You have done a great job #TW111</p>
+                          <small>10:30 am</small>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="d-flex">
+                      <img src="images/faces/face3.jpg" alt="user">
+                     <div>
+                      <p class="text-info mb-1">Leonard Thornton</p>
+                      <p class="mb-0">Sales dashboard have been created</p>
+                      <small>11:30 am</small>
+                     </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="d-flex">
+                        <img src="images/faces/face4.jpg" alt="user">
+                        <div>
+                          <p class="text-info mb-1">George Morrison</p>
+                          <p class="mb-0">Sales dashboard have been created</p>
+                          <small>8:50 am</small>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="d-flex">
+                        <img src="images/faces/face5.jpg" alt="user">
+                        <div>
+                        <p class="text-info mb-1">Ryan Cortez</p>
+                        <p class="mb-0">Herbs are fun and easy to grow.</p>
+                        <small>9:00 am</small>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 grid-margin transparent">
+              <div class="row">
+                <div class="col-md-5 mb-4 stretch-card transparent">
+                  <img src="{%static 'img/users/default_avatar.jpg'%}" alt="">
+                </div>
+                <div class="col-md-6 mb-4 stretch-card transparent">
+                     <div class="card-body">
+                      <h3 class="font-weight-bold mb-3">&nbsp; {%if request.user.username%}{{ request.user.username}}'s {%else%}Your's{%endif%} Profile</h3>
+                      <h4 class="mb-3">Name: {{user.first_name}} {{user.last_name}}</h4>
+
+                      <h4 class="mb-3">email: {{user.email}}</h4>
+
+                       <h4 class="mb-3">Country: </h4>
+
+                       <h4 class="mb-3">City: </h4>
+                    </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4 stretch-card transparent">
+
+                  <div class="card card-tale">
+                    <div class="card-body">
+                      <p class="mb-4">Your views</p>
+                      <p class="fs-30 mb-2">4006</p>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4 stretch-card transparent">
+                  <div class="card card-dark-blue">
+                    <div class="card-body">
+                      <p class="mb-4">Amount posts:</p>
+                      <p class="fs-30 mb-2">61344</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
+                  <div class="card card-light-blue">
+                    <div class="card-body">
+                      <p class="mb-4">Amount coments:</p>
+                      <p class="fs-30 mb-2">34040</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 stretch-card transparent">
+                  <div class="card card-tale">
+                    <div class="card-body">
+                      <p class="mb-4">Your rating</p>
+                      <p class="fs-30 mb-2">47033</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          {%include 'blog/post/includes/list.html'%}
+          </div>
+
+<div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <p class="card-title mb-0">Last Likes</p>
+                  <div class="table-responsive">
+                    <table class="table table-striped table-borderless">
+                      <thead>
+                        <tr>
+                          <th>Product</th>
+                          <th>Price</th>
+                          <th>Date</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Search Engine Marketing</td>
+                          <td class="font-weight-bold">$362</td>
+                          <td>21 Sep 2018</td>
+                          <td class="font-weight-medium"><div class="badge badge-success">Completed</div></td>
+                        </tr>
+                        <tr>
+                          <td>Search Engine Optimization</td>
+                          <td class="font-weight-bold">$116</td>
+                          <td>13 Jun 2018</td>
+                          <td class="font-weight-medium"><div class="badge badge-success">Completed</div></td>
+                        </tr>
+                        <tr>
+                          <td>Display Advertising</td>
+                          <td class="font-weight-bold">$551</td>
+                          <td>28 Sep 2018</td>
+                          <td class="font-weight-medium"><div class="badge badge-warning">Pending</div></td>
+                        </tr>
+                        <tr>
+                          <td>Pay Per Click Advertising</td>
+                          <td class="font-weight-bold">$523</td>
+                          <td>30 Jun 2018</td>
+                          <td class="font-weight-medium"><div class="badge badge-warning">Pending</div></td>
+                        </tr>
+                        <tr>
+                          <td>E-Mail Marketing</td>
+                          <td class="font-weight-bold">$781</td>
+                          <td>01 Nov 2018</td>
+                          <td class="font-weight-medium"><div class="badge badge-danger">Cancelled</div></td>
+                        </tr>
+                        <tr>
+                          <td>Referral Marketing</td>
+                          <td class="font-weight-bold">$283</td>
+                          <td>20 Mar 2018</td>
+                          <td class="font-weight-medium"><div class="badge badge-warning">Pending</div></td>
+                        </tr>
+                        <tr>
+                          <td>Social media marketing</td>
+                          <td class="font-weight-bold">$897</td>
+                          <td>26 Oct 2018</td>
+                          <td class="font-weight-medium"><div class="badge badge-success">Completed</div></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+           <div class="col-md-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <p class="card-title mb-0">Last Comments</p>
+                  <div class="table-responsive">
+                    <table class="table table-striped table-borderless">
+                      <thead>
+                        <tr>
+                          <th>Product</th>
+                          <th>Price</th>
+                          <th>Date</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Search Engine Marketing</td>
+                          <td class="font-weight-bold">$362</td>
+                          <td>21 Sep 2018</td>
+                          <td class="font-weight-medium"><div class="badge badge-success">Completed</div></td>
+                        </tr>
+                        <tr>
+                          <td>Search Engine Optimization</td>
+                          <td class="font-weight-bold">$116</td>
+                          <td>13 Jun 2018</td>
+                          <td class="font-weight-medium"><div class="badge badge-success">Completed</div></td>
+                        </tr>
+                        <tr>
+                          <td>Display Advertising</td>
+                          <td class="font-weight-bold">$551</td>
+                          <td>28 Sep 2018</td>
+                          <td class="font-weight-medium"><div class="badge badge-warning">Pending</div></td>
+                        </tr>
+                        <tr>
+                          <td>Pay Per Click Advertising</td>
+                          <td class="font-weight-bold">$523</td>
+                          <td>30 Jun 2018</td>
+                          <td class="font-weight-medium"><div class="badge badge-warning">Pending</div></td>
+                        </tr>
+                        <tr>
+                          <td>E-Mail Marketing</td>
+                          <td class="font-weight-bold">$781</td>
+                          <td>01 Nov 2018</td>
+                          <td class="font-weight-medium"><div class="badge badge-danger">Cancelled</div></td>
+                        </tr>
+                        <tr>
+                          <td>Referral Marketing</td>
+                          <td class="font-weight-bold">$283</td>
+                          <td>20 Mar 2018</td>
+                          <td class="font-weight-medium"><div class="badge badge-warning">Pending</div></td>
+                        </tr>
+                        <tr>
+                          <td>Social media marketing</td>
+                          <td class="font-weight-bold">$897</td>
+                          <td>26 Oct 2018</td>
+                          <td class="font-weight-medium"><div class="badge badge-success">Completed</div></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+</div>
+<div class="content-wrapper">
+  {%include 'blog/post/includes/best_posts.html'%}
+</div>
+
+          
+
+
+{% endblock %}
+
+ 
+
+</body>
+
+</html>

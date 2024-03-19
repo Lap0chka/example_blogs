@@ -1,0 +1,43 @@
+{%extends 'blog/base.html'%}
+{%load static%}
+		<title>{%block title%}{{post.title}}{%endblock%}</title>
+
+{%block menu%}
+	<ul class="nav navbar-nav navbar-right">
+		<li class=""><a href="{%url 'blog:post_list'%}">home</a></li>
+		<li class="smooth-menu"><a href="#pack">Post</a></li>
+		<li class="smooth-menu"><a href="#container">Comments </a></li>
+		<li class="smooth-menu"><a href="#simular">Similar Posts</a></li>
+		<li class="smooth-menu"><a href="#subs">subscription</a></li>
+		<li>
+			<a href="{%url 'profile:add_post'%}" class="book-btn">add post</a>
+		</li><!--/.project-btn-->
+	</ul>
+{%endblock%}
+{%block context%}
+
+
+		<section id="pack" class="packages">
+			<div class="container">
+				<div class="gallary-header text-center">
+					<p>"Learning without thinking is useless. Thinking without learning is dangerous." - Confucius</p>
+					<h2>
+						{{post.title}}
+					</h2>
+					<img src="{%if post.pictures%} {{post.pictures.url}} {%else%} {%static 'img/blog/news.png'%} {%endif%}" alt="">
+					<p>
+						Published {{ post.publish }} by {{ post.author }}
+					</p>
+				</div><!--/.gallery-header-->
+				{{ post.body|linebreaks }}
+				<p>
+					<a href="{% url 'blog:post_share' post.id %}"> Share this post</a>
+				</p>
+				</div>
+			</section>
+
+		{% include "blog/post/includes/comment_form.html" %}
+				<!--packages end-->
+		{%include 'blog/post/includes/simular_post.html'%}
+
+{%endblock%}

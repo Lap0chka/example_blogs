@@ -1,0 +1,33 @@
+{%extends 'base.html'%}
+
+{% block title %}Logged out{% endblock %}
+{%block content%}
+  <div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+      <div class="content-wrapper d-flex align-items-center auth px-0">
+        <div class="row w-100 mx-0">
+          <div class="col-lg-4 mx-auto">
+            <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+              <div class="brand-logo">
+                <h1>Yours Blog</h1>
+              </div>
+             <h1>Logged out</h1>
+              <h6 class="font-weight-light">You have been successfully logged out.You can
+                <a href="{% url 'login' %}">log-in again</a>.
+              </h6>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- content-wrapper ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+
+{%endblock%}
+
+
+

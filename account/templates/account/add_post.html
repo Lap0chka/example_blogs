@@ -1,0 +1,136 @@
+{%extends 'blog/base.html'%}
+
+{%block title%}Add post {%endblock%}
+
+{%block context%}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <section  class="travel-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="single-travel-boxes">
+                        <div id="desc-tabs" class="desc-tabs">
+
+                            <ul class="nav nav-tabs" role="tablist">
+
+                                <li role="presentation" class="active">
+                                    <a href="#tours" aria-controls="tours" role="tab" data-toggle="tab">
+                                        <i class="fa fa-tree"></i>
+                                        Add New
+                                    </a>
+                                </li>
+
+                                <li role="presentation">
+                                    <a href="#hotels" aria-controls="hotels" role="tab" data-toggle="tab">
+                                        <i class="fa fa-building"></i>
+                                        Edit my Posts
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                            <!-- Tab panes -->
+
+                                <div class="tab-content">
+
+                                <div role="tabpanel" class="tab-pane active fade in" id="tours">
+                                    <div class="tab-para">
+
+                                        <div class="row">
+                                            <div class="col-lg-8 col-md-4 col-sm-12">
+                                                <div class="single-tab-select-box">
+
+                                                    <h2>title</h2>
+
+
+                                                    <div class="">
+                                                        {{form.title}}
+                                                    </div><!-- /.travel-select-icon -->
+                                                    <br>
+
+
+                                                </div><!--/.single-tab-select-box-->
+                                            </div><!--/.col-->
+
+                                            <div class="col-lg-4 col-md-3 col-sm-4">
+                                                <div class="single-tab-select-box">
+                                                    <h2>Tags</h2>
+
+                                                             {{form.tags}}
+
+
+                                                </div><!--/.single-tab-select-box-->
+                                            </div><!--/.col-->
+                                            <div class="col-lg-12 col-md-3 col-sm-4">
+                                                 <div class="single-tab-select-box">
+                                                     <h2>Body</h2>
+                                                     {{form.body}}
+                                                 </div>
+                                            </div>
+
+                                        </div><!--/.row-->
+
+                                        <div class="row">
+                                            <div class="col-lg-7 clo-sm-7">
+                                                <div class="about-btn travel-mrt-10 pull-right">
+                                                    <button  class="about-view travel-btn">
+                                                        Send
+                                                    </button><!--/.travel-btn-->
+                                                </div><!--/.about-btn-->
+                                            </div><!--/.col-->
+
+                                        </div><!--/.row-->
+
+                                    </div><!--/.tab-para-->
+
+                                </div><!--/.tabpannel-->
+
+                                <div role="tabpanel" class="tab-pane fade in" id="hotels">
+                                     <div class="tab-para">
+
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-4 col-sm-12">
+                                                <div class="single-tab-select-box">
+                                                    <h2>Here all yours posts</h2>
+                                                {%for post in posts%}
+                                                    <h2>><a href="{{ post.post_change_url }}">{{post.title}}</a></h2>
+                                                {%endfor%}
+
+
+                                                </div><!--/.single-tab-select-box-->
+                                            </div><!--/.col-->
+
+
+                                        </div><!--/.row-->
+
+
+                                    </div><!--/.tab-para-->
+
+                                </div><!--/.tabpannel-->
+
+                                </div><!--/.tabpannel-->
+
+
+
+                            </div><!--/.tab content-->
+                            </form>
+                        </div><!--/.desc-tabs-->
+                    </div><!--/.single-travel-box-->
+                </div><!--/.col-->
+            </div><!--/.row-->
+        </div><!--/.container-->
+
+    </section><!--/.travel-box-->
+{%endblock%}
+		<!--travel-box end-->

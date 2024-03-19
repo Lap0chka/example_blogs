@@ -1,0 +1,36 @@
+{%extends 'blog/base.html'%}
+{%load static%}
+		<title>{%block title%}{{post.title}}{%endblock%}</title>
+
+{%block menu%}
+	<ul class="nav navbar-nav navbar-right">
+		<li class=""><a href="{%url 'blog:post_list'%}">home</a></li>
+		<li class="smooth-menu"><a href="#pack">Post</a></li>
+		<li class="smooth-menu"><a href="#container">Comments </a></li>
+		<li class="smooth-menu"><a href="#simular">Similar Posts</a></li>
+		<li class="smooth-menu"><a href="#subs">subscription</a></li>
+		<li>
+			<a href="{%url 'profile:add_post'%}" class="book-btn">add post</a>
+		</li><!--/.project-btn-->
+	</ul>
+{%endblock%}
+{%block context%}
+
+
+		<section id="pack" class="packages">
+			<div class="container">
+				<div class="gallary-header text-center">
+					<p></p>
+					<h2>
+						{{form.title}}
+					</h2>
+					<img src="{%if post.pictures%} {{post.pictures.url}} {%else%} {%static 'img/blog/news.png'%} {%endif%}" alt="">
+				   {{ form.pictures }}
+
+				</div><!--/.gallery-header-->
+				{{form.body}}
+
+				</div>
+			</section>
+
+{%endblock%}

@@ -1,0 +1,22 @@
+<section id="simular" class="blog">
+			<div class="container">
+				<div class="blog-details">
+                    <div class="gallary-header text-center">
+							<h2>
+								{%if similar_posts %}Similar posts{%else%}There are no similar posts yet.{%endif%}
+							</h2>
+						</div><!--/.gallery-header-->
+						<div class="blog-content">
+							<div class="row">
+								{% for post in similar_posts %}
+									{%include 'blog/post/includes/posts_form.html' %}
+
+								{%endfor%}
+
+					</div><!--/.row-->
+						</div><!--/.blog-content-->
+					</div><!--/.blog-details-->
+				</div><!--/.container-->
+
+		</section><!--/.blog-->
+		<!--blog end-->

@@ -1,0 +1,43 @@
+{%load static%}
+
+<section id="pack" class="packages">
+
+			<div class="container">
+				<div class="gallary-header text-center">
+					{% if query %}
+					<h2>
+						Posts containing "{{ query }}"
+					</h2>
+					<p>
+						{% with posts.count as total_results %}
+						  Found {{ total_results }} result {{ total_results|pluralize }}
+						{% endwith %}
+					</p>
+					{%elif  tag %}
+						<h2>Posts tagged with "{{ tag.name }}"</h2>
+	 					<p>
+							"Like a steady hand in a storm, knowledge provides stability in the chaos of uncertainty"
+						</p>
+					{%else%}
+					<h2>
+						All posts
+					</h2>
+					<p>
+						"Knowledge is power"
+					</p>
+					{% endif %}
+
+				</div><!--/.gallery-header-->
+				<div class="packages-content">
+					<div class="row">
+					{%for post in posts%}
+						{%include 'blog/post/includes/posts_form.html' %}
+					{%endfor%}
+
+					</div><!--/.row-->
+					<div class="text-center">{% include "blog/post/includes/pagination.html" with page=posts %}</div>
+				</div><!--/.packages-content-->
+
+			</div><!--/.container-->
+
+		</section><!--/.packages-->

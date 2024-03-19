@@ -1,0 +1,32 @@
+{%load static%}
+<div class="col-md-4 col-sm-6">
+	<div class="single-package-item">
+		<img style ='height: 275px;' src="{%if post.pictures%} {{post.pictures.url}} {%else%} {%static 'img/blog/news.png'%} {%endif%}" alt="package-place">
+		<div class="single-package-item-txt">
+			<h3><a  href="{{ post.get_absolute_url }}">{{post.title}}</a><span class="pull-right"><a href="">by {{post.author}}</a></span></h3>
+			Tags:
+				{% for tag in post.tags.all %}
+				<a href="{% url 'blog:post_list_by_tag' tag.slug %}">
+				{{ tag.name }}
+				</a>
+				{% if not forloop.last %}, {% endif %} {% endfor %}
+			<div class="packages-para">
+				<p>Published {{ post.publish }}</p>
+				<p>
+					{{ post.body|truncatewords:30|linebreaks }}
+				 </p>
+			</div><!--/.packages-para-->
+			<div class="packages-review">
+				<p>
+					<span>{{post.view}} view{{post.view|pluralize}}</span>
+				</p>
+			</div><!--/.packages-review-->
+			<div class="about-btn">
+				<button  class="about-view packages-btn">
+					book now
+				</button>
+			</div><!--/.about-btn-->
+		</div><!--/.single-package-item-txt-->
+	</div><!--/.single-package-item-->
+
+</div><!--/.col-->

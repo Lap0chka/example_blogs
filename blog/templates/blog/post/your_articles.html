@@ -1,0 +1,33 @@
+<div class="packages-content">
+					<div class="row">
+
+					{% for blog in blogs %}
+						<div class="col-md-4 col-sm-6">
+							<div class="single-package-item" style="overflow: hidden; height: 650px;">
+								<img style="height: 250px; object-fit: cover;" src="{{blog.img.url}}" alt="package-place">
+								<div class="single-package-item-txt" >
+									<a href=""><h3>{{blog.title}}</h3></a>
+									<div class="packages-review">
+										<p>
+											{{blog.description}}...
+										</p>
+
+									</div><!--/.packages-para-->
+									<div class="packages-para">
+										<p>
+											{{blog.data}} <a class="pull-right" href="">{{blog.author}}</a>
+										</p>
+									</div><!--/.packages-review-->
+									<div class="about-btn"><p class="pull-right">{{blog.views}} Reviews</p>
+										<a href="{% url 'detail' blog.id %}" class="about-view packages-btn">
+											Read all
+										</a>
+									</div><!--/.about-btn-->
+								</div><!--/.single-package-item-txt-->
+							</div><!--/.single-package-item-->
+
+						</div><!--/.col-->
+					{% endfor %}
+
+					</div><!--/.row-->
+				</div>

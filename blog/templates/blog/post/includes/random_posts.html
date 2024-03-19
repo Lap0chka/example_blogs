@@ -1,0 +1,24 @@
+{%load static%}
+<section id="random" class="blog">
+			<div class="container">
+				<div class="blog-details">
+						<div class="gallary-header text-center">
+							<h2>
+								Random posts
+							</h2>
+							<p>
+								"Serendipitous discovery can lead to great discoveries."
+							</p>
+						</div><!--/.gallery-header-->
+						<div class="blog-content">
+							<div class="row">
+								{%for post in random_posts%}
+									{%include 'blog/post/includes/posts_form.html' %}
+								{%endfor%}
+
+					</div><!--/.row-->
+						</div><!--/.blog-content-->
+					</div><!--/.blog-details-->
+				</div><!--/.container-->
+
+		</section><!--/.blog-->
